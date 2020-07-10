@@ -1,0 +1,118 @@
+{
+  "sections": [
+    {
+      "header": "Starters",
+      "tagline": "Quick bites to get the juices flowing.",
+      "items": [
+        {
+          "id": "1",
+          "title": "Aromatic Crispy Duck (Quarter)",
+          "description": "Served with Spring Onion, Cucumber, Pancakes and Hoi Sin Sauce",
+          "price": 8.5
+        },
+        {
+          "id": "1a",
+          "title": "Aromatic Crispy Duck (Half)",
+          "description": "Served with Spring Onion, Cucumber, Pancakes and Hoi Sin Sauce",
+          "price": 15.0
+        },
+        {
+          "id": "1b",
+          "title": "Aromatic Crispy Duck (Whole)",
+          "description": "Served with Spring Onion, Cucumber, Pancakes and Hoi Sin Sauce",
+          "price": 28.0
+        },
+        {
+          "id": "1c",
+          "title": "Mixed Starter",
+          "description": "Barbecue Spare Ribs, Satay Chicken Skewers, Prawn Toast, Mini Spring Rolls & Crispy Seaweed",
+          "price": 5.0
+        },
+        {
+          "id": "2",
+          "title": "Barbecue Spare Ribs with BBQ Sauce",
+          "description": "",
+          "price": 6.0
+        },
+        {
+          "id": "3",
+          "title": "Barbecue Spare Ribs with Garlic & Chilli",
+          "description": "",
+          "price": 6.0
+        },
+        {
+          "id": "4",
+          "title": "Giant Spring Roll",
+          "description": "",
+          "price": 2.1
+        },
+        {
+          "id": "4a",
+          "title": "Vegetarian Spring Rolls (4pcs)",
+          "description": "",
+          "price": 2.1
+        },
+        {
+          "id": "5",
+          "title": "Prawn Sesame Toast (8pcs)",
+          "description": "",
+          "price": 2.8
+        },
+        {
+          "id": "6",
+          "title": "Aromatic Crispy Lamb",
+          "description": "Served with Spring Onion, Cucumber, Pancakes and Hoi Sin Sauce",
+          "price": 5.3
+        },
+        {
+          "id": "6a",
+          "title": "Crispy Seaweed",
+          "description": "",
+          "price": 4.0
+        },
+        {
+          "id": "7",
+          "title": "Prawn Crackers",
+          "description": "",
+          "price": 2.2
+        },
+        {
+          "id": "7a",
+          "title": "Satay Chicken Skewers (4pcs)",
+          "description": "",
+          "price": 5.3
+        }
+      ]
+    },
+    {
+      "header": "Soups",
+      "tagline": "Traditional mouth watering Chinese soups",
+      "items": [
+        {
+          "id": "8",
+          "title": "Chicken & Sweetcorn Soup",
+          "description": "",
+          "price": 8.5
+        },
+        {
+          "id": "9",
+          "title": "Chicken & Mushroom Soup",
+          "description": "",
+          "price": 8.5
+        },
+        {
+          "id": "10",
+          "title": "Chicken Noodle Soup",
+          "description": "",
+          "price": 8.5
+        },
+        {
+          "id": "11",
+          "title": "Hot & Sour Soup",
+          "description": "Made with chilli peppers",
+          "price": 8.5
+        }
+      ]
+    }
+  ]
+}
