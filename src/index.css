@@ -77,7 +77,7 @@ h1.last, h2.last, h3.first  {
   background: var(--main-color);
   color: #ffffff;
   font-family: sans-serif;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: bold;
   cursor: pointer;
   text-align: center;
@@ -219,7 +219,35 @@ h1.last, h2.last, h3.first  {
   order: 2;
 }
 
+/* ORDER SUMMARY */
+.order-summary-empty {
+  padding-bottom: 0.2rem;
+  font-style: italic;
+}
+.order-items {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+}
+.order-item-title, .order-item-price, .order-item-quantity {
 
+  font-size: 1em;
+}
+.order-item-quantity {
+  grid-column: 1/2;
+  padding:0.2rem 0.5rem 0.2rem 0;
+}
+.order-item-title {
+  grid-column: 2/3;
+  padding:0.2rem 0;
+}
+.order-item-price {
+  grid-column: 3/4;
+  padding:0.2rem 0 0.2rem 0.5rem;
+}
+.order-total {
+  font-weight: bold;
+  text-align: right;
+}
 
 /* MENU STYLES */
 
@@ -277,10 +305,6 @@ h1.last, h2.last, h3.first  {
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-}
-.menu-item-controls > .btn {
-  font-family: "Courier New", Courier, monospace;
-  font-size: 1em;
 }
 .menu-item-controls-quantity {
   min-width: 2rem;
@@ -428,6 +452,7 @@ h1.last, h2.last, h3.first  {
   .aside-container {
     grid-column: 8/11;
     margin: 0;
+    flex-grow: 0;
   }
 
 }

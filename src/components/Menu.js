@@ -5,7 +5,26 @@ import WithAside from "../layout/WithAside";
 
 const Menu = () => {
   const [orderList, setOrderList] = useState([]);
-  function updateOrderList(e, id, title, price) {
+  const orderEmpty = () => {
+    if (Array.isArray(orderList) && orderList.length === 0) {
+      return (
+        <div className="order-summary-empty">No items in your basket.</div>
+      );
+    }
+  };
+  const orderTotal = () => {
+    let total = 0;
+    orderList.forEach((item) => (total += item.price));
+
+    return total;
+  };
+  const menuItemDescription = (description) => {
+    if (description) {
+      return <div className="menu-item-description">{description}</div>;
+    }
+  };
+
+  const updateOrderList = (e, id, title, price) => {
     let objIndex = orderList.findIndex((obj) => obj.id === id);
     if (objIndex >= 0) {
       setOrderList(
@@ -14,7 +33,7 @@ const Menu = () => {
             ? {
                 id: id,
                 title: title,
-                price: price,
+                price: price * (item.quantity + 1),
                 quantity: (item.quantity += 1),
               }
             : item
@@ -30,7 +49,7 @@ const Menu = () => {
         })
       );
     }
-  }
+  };
   return (
     <WithAside
       main={
@@ -43,7 +62,7 @@ const Menu = () => {
                 <section className="menu-section-item" key={id}>
                   <div className="menu-item-id">{id}</div>
                   <div className="menu-item-title">{title}</div>
-                  <div className="menu-item-description">{description}</div>
+                  {menuItemDescription(description)}
                   <div className="menu-item-price">
                     {parseFloat(price).toLocaleString("en-GB", {
                       style: "currency",
@@ -51,13 +70,11 @@ const Menu = () => {
                     })}
                   </div>
                   <div className="menu-item-controls">
-                    <button className="btn">-</button>
-                    <div className="menu-item-controls-quantity">0</div>
                     <button
                       className="btn"
                       onClick={(e) => updateOrderList(e, id, title, price)}
                     >
-                      +
+                      Add
                     </button>
                   </div>
                 </section>
@@ -70,12 +87,31 @@ const Menu = () => {
         </section>
       }
       aside={
-        <div>
-          {orderList.map(({ id, title, price, quantity }) => (
-            <div key={id}>
-              {title}, {price}, {quantity}
+        <div className="order">
+          <h1 className="first">Order Summary</h1>
+          <div className="order-summary">
+            {orderEmpty()}
+            {orderList.map(({ id, title, price, quantity }) => (
+              <div className="order-items" key={id}>
+                <div className="order-item-quantity">{quantity}x</div>
+                <div className="order-item-title">{title}</div>
+                <div className="order-item-price">
+                  {parseFloat(price).toLocaleString("en-GB", {
+                    style: "currency",
+                    currency: "GBP",
+                  })}
+                </div>
+              </div>
+            ))}
+            <hr />
+            <div className="order-total">
+              Total:{" "}
+              {parseFloat(orderTotal()).toLocaleString("en-GB", {
+                style: "currency",
+                currency: "GBP",
+              })}
             </div>
-          ))}
+          </div>
         </div>
       }
     />
