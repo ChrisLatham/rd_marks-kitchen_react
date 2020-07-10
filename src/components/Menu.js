@@ -24,6 +24,16 @@ const Menu = () => {
     }
   };
 
+  const parseItemId = (id) => {
+    const regexStr = id.match(/[a-z]+|[^a-z]+/gi);
+    return (
+      <span>
+        {regexStr[0]}
+        <sup>{regexStr[1]}</sup>
+      </span>
+    );
+  };
+
   const updateOrderList = (e, id, title, price) => {
     let objIndex = orderList.findIndex((obj) => obj.id === id);
     if (objIndex >= 0) {
@@ -60,7 +70,7 @@ const Menu = () => {
               <div className="menu-section-subheader">{tagline}</div>
               {items.map(({ id, title, description, price }) => (
                 <section className="menu-section-item" key={id}>
-                  <div className="menu-item-id">{id}</div>
+                  <div className="menu-item-id">{parseItemId(id)}</div>
                   <div className="menu-item-title">{title}</div>
                   {menuItemDescription(description)}
                   <div className="menu-item-price">
@@ -79,9 +89,6 @@ const Menu = () => {
                   </div>
                 </section>
               ))}
-              <div className="menu-section-separator">
-                <hr />
-              </div>
             </section>
           ))}
         </section>

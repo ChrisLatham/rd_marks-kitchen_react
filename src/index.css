@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 :root {
   --main-color: #007f46;
   --main-color-darker: #006a3a;
-  --secondary-color: #00797F;
+  --secondary-color: #00797f;
   --accent-color: #ffcf57;
   --background-primary: #e3e3e3;
 }
@@ -17,7 +17,7 @@ body {
   height: 100%;
   padding: 0;
   margin: 0 auto;
-  font-family: 'Amaranth', sans-serif;
+  font-family: "Amaranth", sans-serif;
   font-size: 1em;
   background-color: var(--background-primary);
   color: #3e3e3e;
@@ -26,43 +26,53 @@ body {
 /* FONT STYLES */
 
 hr {
-  height:1px;
+  height: 1px;
   background-color: var(--main-color);
   border: 0;
   border-collapse: collapse;
 }
-h1.first, h2.first, h3.first  {
+h1.first,
+h2.first,
+h3.first {
   margin-top: 0;
 }
-h1.last, h2.last, h3.first  {
+h1.last,
+h2.last,
+h3.first {
   margin-bottom: 0;
 }
 .subtext {
   font-size: 0.8em;
   font-style: italic;
 }
-
 .fas.fa-pepper-hot {
   color: red;
+}
+sup {
+  margin-left: 0.15em;
+  vertical-align: top;
+  font-size: 0.8em;
+  font-weight: bold;
+  font-style: italic;
 }
 
 /* DATA TABLES */
 
-.table{
+.table {
   border-collapse: collapse;
-  width:100%;
+  width: 100%;
   margin-bottom: 2rem;
 }
 .table tr td {
-  padding:0.2em;
+  padding: 0.2em;
 }
-.table td:first-child{
+.table td:first-child {
   font-weight: bold;
 }
 .opening-times tr td {
-  padding:0.2em 0.8em 0.2em 0;
+  padding: 0.2em 0.8em 0.2em 0;
 }
-.opening-times tr td:first-child{
+.opening-times tr td:first-child {
   font-weight: bold;
 }
 
@@ -81,12 +91,10 @@ h1.last, h2.last, h3.first  {
   font-weight: bold;
   cursor: pointer;
   text-align: center;
-  transition: background 250ms ease-in-out,
-  transform 150ms ease;
+  transition: background 250ms ease-in-out, transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: 0.2rem;
-
 }
 .btn:hover,
 .btn:focus {
@@ -133,7 +141,7 @@ h1.last, h2.last, h3.first  {
   text-decoration: none;
 }
 
-.main-container-home, .main-container, .aside-container {
+.main-container-home {
   background-color: #fff;
   padding: 1em;
   border-radius: 0.3em;
@@ -197,21 +205,24 @@ h1.last, h2.last, h3.first  {
 .nav-bar .nav-item:hover {
   background-color: var(--accent-color);
 }
-.nav-bar .nav-item:hover a{
+.nav-bar .nav-item:hover a {
   color: #fff;
 }
-.nav-item.active, .nav-item.active:hover {
+.nav-item.active,
+.nav-item.active:hover {
   background-color: #eeeeee;
 }
-.nav-item.active a, .nav-item.active:hover a {
+.nav-item.active a,
+.nav-item.active:hover a {
   color: var(--main-color);
 }
-.nav-item a, .nav-bar li {
+.nav-item a,
+.nav-bar li {
   transition: background-color 0.3s, color 0.3s;
 }
 
 .phone-number {
-  font-family: 'Cuprum', sans-serif;
+  font-family: "Cuprum", sans-serif;
   font-size: 1.2em;
   color: var(--accent-color);
   font-weight: bold;
@@ -220,6 +231,13 @@ h1.last, h2.last, h3.first  {
 }
 
 /* ORDER SUMMARY */
+.order {
+  position: sticky;
+  top: 1rem;
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 0.3em;
+}
 .order-summary-empty {
   padding-bottom: 0.2rem;
   font-style: italic;
@@ -228,21 +246,22 @@ h1.last, h2.last, h3.first  {
   display: grid;
   grid-template-columns: auto 1fr auto;
 }
-.order-item-title, .order-item-price, .order-item-quantity {
-
+.order-item-title,
+.order-item-price,
+.order-item-quantity {
   font-size: 1em;
 }
 .order-item-quantity {
   grid-column: 1/2;
-  padding:0.2rem 0.5rem 0.2rem 0;
+  padding: 0.2rem 0.5rem 0.2rem 0;
 }
 .order-item-title {
   grid-column: 2/3;
-  padding:0.2rem 0;
+  padding: 0.2rem 0;
 }
 .order-item-price {
   grid-column: 3/4;
-  padding:0.2rem 0 0.2rem 0.5rem;
+  padding: 0.2rem 0 0.2rem 0.5rem;
 }
 .order-total {
   font-weight: bold;
@@ -259,8 +278,19 @@ h1.last, h2.last, h3.first  {
   display: flex;
   flex-flow: column nowrap;
   flex: 1;
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 0.3em;
+  margin-bottom: 1rem;
 }
-.menu-section-header, .menu-section-subheader, .menu-section-item, .menu-section-separator {
+.menu-section:nth-last-child(1) {
+  margin: 0;
+}
+
+.menu-section-header,
+.menu-section-subheader,
+.menu-section-item,
+.menu-section-separator {
   flex: 1;
 }
 .menu-section-header {
@@ -277,18 +307,20 @@ h1.last, h2.last, h3.first  {
   display: grid;
   grid-gap: 0.5rem;
   grid-template-columns: auto 1fr auto auto;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   align-items: center;
 }
 
-.menu-item-id, .menu-item-title, .menu-item-price {
+.menu-item-id,
+.menu-item-title,
+.menu-item-price {
   font-weight: bold;
 }
 
 .menu-item-id {
   grid-column: 1/2;
   order: 1;
-  min-width: 1rem;
+  min-width: 2.6rem;
 }
 .menu-item-title {
   grid-column: 2/3;
@@ -319,10 +351,10 @@ h1.last, h2.last, h3.first  {
 
 @media only screen and (min-width: 580px) {
   /* For tablets: */
-  .navigation{
-    order:2;
+  .navigation {
+    order: 2;
   }
-  .brand{
+  .brand {
     font-size: 2.5em;
     padding: 0;
   }
@@ -349,7 +381,6 @@ h1.last, h2.last, h3.first  {
     grid-column: 1/13;
     margin: 0 1rem;
   }
-
 }
 
 @media only screen and (min-width: 1024px) {
@@ -357,7 +388,7 @@ h1.last, h2.last, h3.first  {
   .navigation {
     order: 2;
   }
-  .brand{
+  .brand {
     font-size: 2.5em;
     padding: 0;
   }
@@ -384,14 +415,13 @@ h1.last, h2.last, h3.first  {
     grid-column: 9/13;
     margin: 0 1rem 0 0;
   }
-
 }
 @media only screen and (min-width: 1200px) {
   /* For desktop: */
   .navigation {
     order: 2;
   }
-  .brand{
+  .brand {
     font-size: 2.5em;
     padding: 0;
   }
@@ -419,14 +449,13 @@ h1.last, h2.last, h3.first  {
     grid-column: 9/12;
     margin: 0;
   }
-
 }
 @media only screen and (min-width: 1600px) {
   /* For desktop: */
   .navigation {
     order: 2;
   }
-  .brand{
+  .brand {
     font-size: 2.5em;
     padding: 0;
   }
@@ -454,5 +483,4 @@ h1.last, h2.last, h3.first  {
     margin: 0;
     flex-grow: 0;
   }
-
 }
