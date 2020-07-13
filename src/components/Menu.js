@@ -65,7 +65,7 @@ const Menu = () => {
       main={
         <section className="menu">
           {sections.map(({ header, tagline, items }) => (
-            <section className="menu-section" key={header}>
+            <section className="panel menu-section" key={header}>
               <div className="menu-section-header">{header}</div>
               <div className="menu-section-subheader">{tagline}</div>
               {items.map(({ id, title, description, price }) => (
@@ -94,32 +94,34 @@ const Menu = () => {
         </section>
       }
       aside={
-        <div className="order">
-          <h1 className="first">Order Summary</h1>
-          <div className="order-summary">
-            {orderEmpty()}
-            {orderList.map(({ id, title, price, quantity }) => (
-              <div className="order-items" key={id}>
-                <div className="order-item-quantity">{quantity}x</div>
-                <div className="order-item-title">{title}</div>
-                <div className="order-item-price">
-                  {parseFloat(price).toLocaleString("en-GB", {
-                    style: "currency",
-                    currency: "GBP",
-                  })}
+        <section className="panel menu-aside">
+          <section className="order">
+            <h2 className="first">Order Summary</h2>
+            <div className="order-summary">
+              {orderEmpty()}
+              {orderList.map(({ id, title, price, quantity }) => (
+                <div className="order-items" key={id}>
+                  <div className="order-item-quantity">{quantity}x</div>
+                  <div className="order-item-title">{title}</div>
+                  <div className="order-item-price">
+                    {parseFloat(price).toLocaleString("en-GB", {
+                      style: "currency",
+                      currency: "GBP",
+                    })}
+                  </div>
                 </div>
+              ))}
+              <hr />
+              <div className="order-total">
+                Total:{" "}
+                {parseFloat(orderTotal()).toLocaleString("en-GB", {
+                  style: "currency",
+                  currency: "GBP",
+                })}
               </div>
-            ))}
-            <hr />
-            <div className="order-total">
-              Total:{" "}
-              {parseFloat(orderTotal()).toLocaleString("en-GB", {
-                style: "currency",
-                currency: "GBP",
-              })}
             </div>
-          </div>
-        </div>
+          </section>
+        </section>
       }
     />
   );

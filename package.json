@@ -17,8 +17,9 @@
   },
   "scripts": {
     "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "buildreact": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

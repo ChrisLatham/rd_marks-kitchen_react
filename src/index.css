@@ -41,6 +41,14 @@ h2.last,
 h3.first {
   margin-bottom: 0;
 }
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+h2 {
+  font-size: 1.6em;
+  font-weight: bold;
+}
 .subtext {
   font-size: 0.8em;
   font-style: italic;
@@ -69,10 +77,10 @@ sup {
 .table td:first-child {
   font-weight: bold;
 }
-.opening-times tr td {
+.opening-hours-table tr td {
   padding: 0.2em 0.8em 0.2em 0;
 }
-.opening-times tr td:first-child {
+.opening-hours-table tr td:first-child {
   font-weight: bold;
 }
 
@@ -111,6 +119,13 @@ sup {
 }
 
 /* MAIN LAYOUT COMPONENTS */
+
+.panel {
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 0.3em;
+  margin-bottom: 1rem;
+}
 
 .wrapper {
   display: grid;
@@ -164,6 +179,10 @@ sup {
   color: #fff;
   padding: 2rem 0;
   margin-top: auto;
+}
+
+.contact {
+  min-height: 100%;
 }
 
 /* HEADER NAVIGATION */
@@ -234,9 +253,6 @@ sup {
 .order {
   position: sticky;
   top: 1rem;
-  background-color: #fff;
-  padding: 1em;
-  border-radius: 0.3em;
 }
 .order-summary-empty {
   padding-bottom: 0.2rem;
@@ -278,10 +294,6 @@ sup {
   display: flex;
   flex-flow: column nowrap;
   flex: 1;
-  background-color: #fff;
-  padding: 1em;
-  border-radius: 0.3em;
-  margin-bottom: 1rem;
 }
 .menu-section:nth-last-child(1) {
   margin: 0;
