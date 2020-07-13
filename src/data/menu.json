@@ -2,7 +2,7 @@
   "sections": [
     {
       "header": "Starters",
-      "tagline": "Quick bites to get the juices flowing.",
+      "tagline": "Quick bites to start or accompany your main dish",
       "items": [
         {
           "id": "1",
@@ -116,7 +116,7 @@
     },
     {
       "header": "Chef's Recommendations",
-      "tagline": "Favourite's straight for the chef",
+      "tagline": "Popular recipes destined to become your new favourite dish",
       "items": [
         {
           "id": "12",
