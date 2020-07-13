@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { sections } from "../data/menu.json";
-import WithAside from "../layout/WithAside";
+import DoubleAside from "../layout/DoubleAside";
 //import OrderSummary from "./OrderSummary";
 
 const Menu = () => {
@@ -61,66 +61,86 @@ const Menu = () => {
     }
   };
   return (
-    <WithAside
-      main={
+    <DoubleAside
+      left={
+        <section className="menu-navigation">
+          <div className="menu-navigation-header">
+            <h2 className="first">Quick Links</h2>
+          </div>
+          <ul className="menu-navigation-items">
+            {sections.map(({ header }) => (
+              <li className="menu-navigation-item">
+                <a href={`#${header}`}>{header}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      }
+      middle={
         <section className="menu">
           {sections.map(({ header, tagline, items }) => (
-            <section className="panel menu-section" key={header}>
-              <div className="menu-section-header">{header}</div>
-              <div className="menu-section-subheader">{tagline}</div>
-              {items.map(({ id, title, description, price }) => (
-                <section className="menu-section-item" key={id}>
-                  <div className="menu-item-id">{parseItemId(id)}</div>
-                  <div className="menu-item-title">{title}</div>
-                  {menuItemDescription(description)}
-                  <div className="menu-item-price">
-                    {parseFloat(price).toLocaleString("en-GB", {
-                      style: "currency",
-                      currency: "GBP",
-                    })}
-                  </div>
-                  <div className="menu-item-controls">
-                    <button
-                      className="btn"
-                      onClick={(e) => updateOrderList(e, id, title, price)}
-                    >
-                      Add
-                    </button>
-                  </div>
+            <section className="menu-section" id={header} key={header}>
+              <button type="button" className="menu-section-header">
+                {header}
+              </button>
+              <div className="menu-section-content">
+                <div className="menu-section-subheader">{tagline}</div>
+                <section className="menu-section-items">
+                  {items.map(({ id, title, description, price }) => (
+                    <section className="menu-section-item" key={id}>
+                      <div className="menu-item-id">{parseItemId(id)}</div>
+                      <div className="menu-item-title">{title}</div>
+                      {menuItemDescription(description)}
+                      <div className="menu-item-price">
+                        {parseFloat(price).toLocaleString("en-GB", {
+                          style: "currency",
+                          currency: "GBP",
+                        })}
+                      </div>
+                      <div className="menu-item-controls">
+                        <button
+                          className="btn"
+                          onClick={(e) => updateOrderList(e, id, title, price)}
+                        >
+                          Add
+                        </button>
+                      </div>
+                    </section>
+                  ))}
                 </section>
-              ))}
+              </div>
             </section>
           ))}
         </section>
       }
-      aside={
-        <section className="panel menu-aside">
-          <section className="order">
+      right={
+        <section className="order-summary">
+          <div className="order-summary-header">
             <h2 className="first">Order Summary</h2>
-            <div className="order-summary">
-              {orderEmpty()}
-              {orderList.map(({ id, title, price, quantity }) => (
-                <div className="order-items" key={id}>
-                  <div className="order-item-quantity">{quantity}x</div>
-                  <div className="order-item-title">{title}</div>
-                  <div className="order-item-price">
-                    {parseFloat(price).toLocaleString("en-GB", {
-                      style: "currency",
-                      currency: "GBP",
-                    })}
-                  </div>
+          </div>
+          <div className="order-summary-items">
+            {orderEmpty()}
+            {orderList.map(({ id, title, price, quantity }) => (
+              <div className="order-items" key={id}>
+                <div className="order-item-quantity">{quantity}x</div>
+                <div className="order-item-title">{title}</div>
+                <div className="order-item-price">
+                  {parseFloat(price).toLocaleString("en-GB", {
+                    style: "currency",
+                    currency: "GBP",
+                  })}
                 </div>
-              ))}
-              <hr />
-              <div className="order-total">
-                Total:{" "}
-                {parseFloat(orderTotal()).toLocaleString("en-GB", {
-                  style: "currency",
-                  currency: "GBP",
-                })}
               </div>
+            ))}
+            <hr />
+            <div className="order-total">
+              Total:{" "}
+              {parseFloat(orderTotal()).toLocaleString("en-GB", {
+                style: "currency",
+                currency: "GBP",
+              })}
             </div>
-          </section>
+          </div>
         </section>
       }
     />

@@ -12,6 +12,9 @@
 * {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   min-width: 320px;
   height: 100%;
@@ -151,7 +154,7 @@ sup {
   color: #fff;
 }
 
-.header-container a:link {
+.phone-number a:link {
   color: var(--accent-color);
   text-decoration: none;
 }
@@ -187,6 +190,13 @@ sup {
 
 /* HEADER NAVIGATION */
 
+.brand-nav-group {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .brand {
   font-family: "Cookie", serif;
   font-size: 2em;
@@ -199,7 +209,7 @@ sup {
 .navigation {
   display: flex;
   padding: 0;
-  margin: 0;
+  margin: 0 0 0 1rem;
   align-items: center;
   justify-content: flex-end;
   order: 3;
@@ -250,13 +260,26 @@ sup {
 }
 
 /* ORDER SUMMARY */
-.menu-aside {
+.order-summary {
   position: sticky;
   top: 1rem;
+  background-color: #fff;
+}
+.order-summary-header {
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 0.76rem 1rem;
+}
+.order-summary-header h2 {
+  margin: 0;
 }
 .order-summary-empty {
   padding-bottom: 0.2rem;
   font-style: italic;
+}
+.order-summary-items {
+  padding: 1rem;
+  background-color: #fff;
 }
 .order-items {
   display: grid;
@@ -295,8 +318,21 @@ sup {
   flex-flow: column nowrap;
   flex: 1;
 }
-.menu-section:nth-last-child(1) {
-  margin: 0;
+.menu-section::before {
+  display: block;
+  content: " ";
+  margin-top: 1rem;
+  visibility: hidden;
+  width: 100%;
+}
+.menu-section:first-child {
+  margin-top: -1rem;
+}
+.menu-section-content {
+  padding: 1rem;
+  display: block;
+  overflow: hidden;
+  background-color: #fff;
 }
 
 .menu-section-header,
@@ -308,6 +344,14 @@ sup {
 .menu-section-header {
   font-size: 2em;
   font-weight: bold;
+  background-color: var(--main-color);
+  color: #fff;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
 }
 .menu-section-subheader {
   font-size: 1.17em;
@@ -441,12 +485,13 @@ sup {
     order: 3;
   }
   .inner-wrapper {
-    grid-column: 2/12;
+    grid-column: 1/13;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     margin: 0;
+    padding: 0 1.4rem;
   }
 
   .main-container-home {
@@ -475,11 +520,12 @@ sup {
     order: 3;
   }
   .inner-wrapper {
-    grid-column: 3/11;
+    grid-column: 1/13;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    padding: 0 1.4rem;
   }
 
   .main-container-home {

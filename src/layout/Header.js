@@ -17,14 +17,16 @@ class Header extends Component {
     return (
       <header className="header-container">
         <div className="inner-wrapper">
-          <section className="brand">Mark's Kitchen</section>
-          <nav className="navigation">
-            <ul className="nav-bar">
-              <NavLink to={`/`}>Home</NavLink>
-              <NavLink to={`/menu`}>Menu</NavLink>
-              <NavLink to={`/contact`}>Contact</NavLink>
-            </ul>
-          </nav>
+          <div className="brand-nav-group">
+            <section className="brand">Mark's Kitchen</section>
+            <nav className="navigation">
+              <ul className="nav-bar">
+                <NavLink to={`/`}>Home</NavLink>
+                <NavLink to={`/menu`}>Menu</NavLink>
+                <NavLink to={`/contact`}>Contact</NavLink>
+              </ul>
+            </nav>
+          </div>
           <section className="phone-number">
             <a href="tel:01285652601">01285 652 601</a>
           </section>
