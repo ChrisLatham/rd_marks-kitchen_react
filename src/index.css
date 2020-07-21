@@ -251,7 +251,7 @@ sup {
 }
 
 .phone-number {
-  font-family: "Cuprum", sans-serif;
+  font-family: "Amaranth", sans-serif;
   font-size: 1.2em;
   color: var(--accent-color);
   font-weight: bold;
@@ -283,30 +283,49 @@ sup {
 }
 .order-items {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto auto 1fr auto;
 }
 .order-item-title,
 .order-item-price,
 .order-item-quantity {
   font-size: 1em;
 }
-.order-item-quantity {
+.order-item-delete {
   grid-column: 1/2;
   padding: 0.2rem 0.5rem 0.2rem 0;
 }
-.order-item-title {
+.order-item-quantity {
   grid-column: 2/3;
+  padding: 0.2rem 0.5rem 0.2rem 0;
+}
+.order-item-title {
+  grid-column: 3/4;
   padding: 0.2rem 0;
 }
 .order-item-price {
-  grid-column: 3/4;
+  grid-column: 4/5;
   padding: 0.2rem 0 0.2rem 0.5rem;
 }
 .order-total {
   font-weight: bold;
   text-align: right;
 }
-
+.order-item-delete-btn {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #80230f;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
 /* MENU STYLES */
 
 .menu {

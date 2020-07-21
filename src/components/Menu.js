@@ -19,6 +19,15 @@ const Menu = () => {
     } else {
       return orderList.map(({ id, title, price, quantity }) => (
         <div className="order-items" key={id}>
+          <div className="order-item-delete">
+            <button
+              type="button"
+              className="order-item-delete-btn"
+              onClick={(e) => removeFromOrderList(e, id, title, price)}
+            >
+              ✖
+            </button>
+          </div>
           <div className="order-item-quantity">{quantity}x</div>
           <div className="order-item-title">{title}</div>
           <div className="order-item-price">
@@ -53,7 +62,7 @@ const Menu = () => {
     );
   };
 
-  const updateOrderList = (e, id, title, price) => {
+  const addToOrderList = (e, id, title, price) => {
     let objIndex = orderList.findIndex((obj) => obj.id === id);
     if (objIndex >= 0) {
       setOrderList(
@@ -79,6 +88,31 @@ const Menu = () => {
       );
     }
   };
+  const removeFromOrderList = (e, id, title, price) => {
+    let objIndex = orderList.findIndex((obj) => obj.id === id);
+    if (objIndex >= 0 && orderList[objIndex].quantity > 1) {
+      setOrderList(
+        orderList.map((item) =>
+          item.id === id
+            ? {
+                id: id,
+                title: title,
+                price: (price / item.quantity) * (item.quantity - 1),
+                quantity: (item.quantity -= 1),
+              }
+            : item
+        )
+      );
+    } else {
+      if (orderList.length === 1) {
+        setOrderList(() => []);
+        sessionStorage.clear();
+      } else {
+        setOrderList(orderList.filter((item) => item.id !== id));
+      }
+    }
+  };
+
   return (
     <DoubleAside
       left={
@@ -119,7 +153,7 @@ const Menu = () => {
                       <div className="menu-item-controls">
                         <button
                           className="btn"
-                          onClick={(e) => updateOrderList(e, id, title, price)}
+                          onClick={(e) => addToOrderList(e, id, title, price)}
                         >
                           Add
                         </button>
