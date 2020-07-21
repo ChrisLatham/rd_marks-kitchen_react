@@ -5,11 +5,30 @@ import DoubleAside from "../layout/DoubleAside";
 
 const Menu = () => {
   const [orderList, setOrderList] = useState([]);
-  const orderEmpty = () => {
+  const loadOrderList = () => {
+    if (orderList.length === 0 && sessionStorage.length > 0) {
+      if (JSON.parse(sessionStorage.getItem("session")).length > 0) {
+        setOrderList(JSON.parse(sessionStorage.getItem("session")));
+      }
+    }
+    sessionStorage.setItem("session", JSON.stringify(orderList));
     if (Array.isArray(orderList) && orderList.length === 0) {
       return (
         <div className="order-summary-empty">No items in your basket.</div>
       );
+    } else {
+      return orderList.map(({ id, title, price, quantity }) => (
+        <div className="order-items" key={id}>
+          <div className="order-item-quantity">{quantity}x</div>
+          <div className="order-item-title">{title}</div>
+          <div className="order-item-price">
+            {parseFloat(price).toLocaleString("en-GB", {
+              style: "currency",
+              currency: "GBP",
+            })}
+          </div>
+        </div>
+      ));
     }
   };
   const orderTotal = () => {
@@ -69,7 +88,7 @@ const Menu = () => {
           </div>
           <ul className="menu-navigation-items">
             {sections.map(({ header }) => (
-              <li className="menu-navigation-item">
+              <li key={header} className="menu-navigation-item">
                 <a href={`#${header}`}>{header}</a>
               </li>
             ))}
@@ -119,19 +138,7 @@ const Menu = () => {
             <h2 className="first">Order Summary</h2>
           </div>
           <div className="order-summary-items">
-            {orderEmpty()}
-            {orderList.map(({ id, title, price, quantity }) => (
-              <div className="order-items" key={id}>
-                <div className="order-item-quantity">{quantity}x</div>
-                <div className="order-item-title">{title}</div>
-                <div className="order-item-price">
-                  {parseFloat(price).toLocaleString("en-GB", {
-                    style: "currency",
-                    currency: "GBP",
-                  })}
-                </div>
-              </div>
-            ))}
+            {loadOrderList()}
             <hr />
             <div className="order-total">
               Total:{" "}
