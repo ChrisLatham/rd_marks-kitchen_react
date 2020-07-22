@@ -45,11 +45,11 @@ h3.first {
   margin-bottom: 0;
 }
 h1 {
-  font-size: 2em;
+  font-size: 1.8em;
   font-weight: bold;
 }
 h2 {
-  font-size: 1.6em;
+  font-size: 1.3em;
   font-weight: bold;
 }
 .subtext {
@@ -183,6 +183,7 @@ sup {
   color: #fff;
   padding: 2rem 0;
   margin-top: auto;
+  order: 100;
 }
 
 .contact {
@@ -281,6 +282,7 @@ sup {
   background-color: var(--main-color);
   color: #fff;
   padding: 0.76rem 1rem;
+  min-height: 3.3rem;
 }
 .order-summary-header h2 {
   margin: 0;
@@ -337,6 +339,10 @@ sup {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.1s ease;
+}
+.order-item-delete-btn:hover {
+  background-color: #ad0a0a;
 }
 /* MENU STYLES */
 
@@ -373,7 +379,7 @@ sup {
   flex: 1;
 }
 .menu-section-header {
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
   background-color: var(--main-color);
   color: #fff;
@@ -387,11 +393,14 @@ sup {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: center;
+  min-height: 3.3rem;
 }
 .menu-section-header:hover {
   background-color: var(--main-color-darker);
 }
 .menu-section-header-chevron {
+  width: 0.6em;
   display: inline-block;
   transition: transform 0.1s ease;
 }
@@ -454,6 +463,9 @@ sup {
 
 @media only screen and (min-width: 580px) {
   /* For tablets: */
+  .menu-section-header {
+    font-size: 1.8em;
+  }
   .navigation {
     order: 2;
   }
@@ -492,6 +504,9 @@ sup {
 
 @media only screen and (min-width: 1024px) {
   /* For desktop: */
+  .menu-section-header {
+    font-size: 1.8em;
+  }
   .navigation {
     order: 2;
   }
@@ -529,6 +544,9 @@ sup {
 }
 @media only screen and (min-width: 1200px) {
   /* For desktop: */
+  .menu-section-header {
+    font-size: 1.8em;
+  }
   .navigation {
     order: 2;
   }
@@ -568,6 +586,9 @@ sup {
 }
 @media only screen and (min-width: 1600px) {
   /* For desktop: */
+  .menu-section-header {
+    font-size: 1.8em;
+  }
   .navigation {
     order: 2;
   }

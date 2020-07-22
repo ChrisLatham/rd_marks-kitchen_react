@@ -1,10 +1,15 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Chevron from "./Chevron";
 
 const MenuSection = ({ header, tagline, items, addToOrder }) => {
   const [setActive, setActiveState] = useState("");
   const [setHeight, setHeightState] = useState("0");
   const content = useRef(null);
+  useEffect(() => {
+    if (header === "Starters") {
+      toggleSection();
+    }
+  }, []);
 
   const menuItemDescription = (description) => {
     if (description) {
@@ -36,13 +41,13 @@ const MenuSection = ({ header, tagline, items, addToOrder }) => {
       >
         {header}
         <Chevron
-          width={20}
           fill={"#fff"}
           className={`menu-section-header-chevron ${setActive}`}
         />
       </button>
       <div
         ref={content}
+        id={header}
         style={{ maxHeight: `${setHeight}` }}
         className="menu-section-content"
       >
