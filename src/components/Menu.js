@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { sections } from "../data/menu.json";
 import DoubleAside from "../layout/DoubleAside";
-//import OrderSummary from "./OrderSummary";
+import MenuSection from "./MenuSection";
 
 const Menu = () => {
   const [orderList, setOrderList] = useState([]);
@@ -45,21 +45,6 @@ const Menu = () => {
     orderList.forEach((item) => (total += item.price));
 
     return total;
-  };
-  const menuItemDescription = (description) => {
-    if (description) {
-      return <div className="menu-item-description">{description}</div>;
-    }
-  };
-
-  const parseItemId = (id) => {
-    const regexStr = id.match(/[a-z]+|[^a-z]+/gi);
-    return (
-      <span>
-        {regexStr[0]}
-        <sup>{regexStr[1]}</sup>
-      </span>
-    );
   };
 
   const addToOrderList = (e, id, title, price) => {
@@ -112,7 +97,6 @@ const Menu = () => {
       }
     }
   };
-
   return (
     <DoubleAside
       left={
@@ -132,37 +116,13 @@ const Menu = () => {
       middle={
         <section className="menu">
           {sections.map(({ header, tagline, items }) => (
-            <section className="menu-section" id={header} key={header}>
-              <button type="button" className="menu-section-header">
-                {header}
-              </button>
-              <div className="menu-section-content">
-                <div className="menu-section-subheader">{tagline}</div>
-                <section className="menu-section-items">
-                  {items.map(({ id, title, description, price }) => (
-                    <section className="menu-section-item" key={id}>
-                      <div className="menu-item-id">{parseItemId(id)}</div>
-                      <div className="menu-item-title">{title}</div>
-                      {menuItemDescription(description)}
-                      <div className="menu-item-price">
-                        {parseFloat(price).toLocaleString("en-GB", {
-                          style: "currency",
-                          currency: "GBP",
-                        })}
-                      </div>
-                      <div className="menu-item-controls">
-                        <button
-                          className="btn"
-                          onClick={(e) => addToOrderList(e, id, title, price)}
-                        >
-                          Add
-                        </button>
-                      </div>
-                    </section>
-                  ))}
-                </section>
-              </div>
-            </section>
+            <MenuSection
+              key={header}
+              header={header}
+              tagline={tagline}
+              items={items}
+              addToOrder={addToOrderList}
+            />
           ))}
         </section>
       }

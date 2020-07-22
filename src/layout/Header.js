@@ -19,6 +19,9 @@ class Header extends Component {
         <div className="inner-wrapper">
           <div className="brand-nav-group">
             <section className="brand">Mark's Kitchen</section>
+            <section className="phone-number-mobile">
+              <a href="tel:01285652601">01285 652 601</a>
+            </section>
             <nav className="navigation">
               <ul className="nav-bar">
                 <NavLink to={`/`}>Home</NavLink>
