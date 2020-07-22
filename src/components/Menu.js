@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { sections } from "../data/menu.json";
 import DoubleAside from "../layout/DoubleAside";
 import MenuSection from "./MenuSection";
 
 const Menu = () => {
   const [orderList, setOrderList] = useState([]);
+  const [activeSection, setActiveSection] = useState(0);
   const loadOrderList = () => {
     if (orderList.length === 0 && sessionStorage.length > 0) {
       if (JSON.parse(sessionStorage.getItem("session")).length > 0) {
@@ -97,6 +98,10 @@ const Menu = () => {
       }
     }
   };
+
+  const sectionClick = (id) => {
+    setActiveSection(activeSection === id ? "" : id);
+  };
   return (
     <DoubleAside
       left={
@@ -105,9 +110,11 @@ const Menu = () => {
             <h2 className="first">Quick Links</h2>
           </div>
           <ul className="menu-navigation-items">
-            {sections.map(({ header }) => (
-              <li key={header} className="menu-navigation-item">
-                <a href={`#${header}`}>{header}</a>
+            {sections.map(({ header }, index) => (
+              <li key={index} className="menu-navigation-item">
+                <button type="button" onClick={() => sectionClick(index)}>
+                  {header}
+                </button>
               </li>
             ))}
           </ul>
@@ -115,13 +122,16 @@ const Menu = () => {
       }
       middle={
         <section className="menu">
-          {sections.map(({ header, tagline, items }) => (
+          {sections.map(({ header, tagline, items }, index) => (
             <MenuSection
-              key={header}
+              key={index}
               header={header}
               tagline={tagline}
               items={items}
+              active={activeSection === index ? "active" : ""}
+              sectionClick={sectionClick}
               addToOrder={addToOrderList}
+              index={index}
             />
           ))}
         </section>

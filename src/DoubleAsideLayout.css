@@ -41,21 +41,22 @@
   color: #333;
 }
 
-.menu-navigation a:link,
-.menu-navigation a:visited {
+.menu-navigation button {
+  font-family: Amaranth, sans-serif;
+  font-size: 1em;
   color: #333;
   text-decoration: none;
-}
-.menu-navigation a:hover {
-  background-color: var(--accent-color);
-}
-.menu-navigation-item a {
   display: inline-block;
   width: 100%;
   padding: 0.4rem 1rem;
   transition: all 0.5s;
+  border: none;
+  text-align: left;
+  cursor: pointer;
 }
-
+.menu-navigation button:hover {
+  background-color: var(--accent-color);
+}
 .left-container {
   display: none;
 }

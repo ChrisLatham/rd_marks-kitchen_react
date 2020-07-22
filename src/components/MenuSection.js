@@ -1,15 +1,30 @@
 import React, { useEffect, useRef, useState } from "react";
 import Chevron from "./Chevron";
 
-const MenuSection = ({ header, tagline, items, addToOrder }) => {
-  const [setActive, setActiveState] = useState("");
+const MenuSection = ({
+  header,
+  tagline,
+  items,
+  addToOrder,
+  active,
+  sectionClick,
+  index,
+}) => {
   const [setHeight, setHeightState] = useState("0");
   const content = useRef(null);
+  const scroll = useRef(null);
+
   useEffect(() => {
-    if (header === "Starters") {
-      toggleSection();
-    }
-  }, []);
+    setTimeout(() => {
+      if (active === "active") {
+        scroll.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 500);
+
+    setHeightState(
+      active === "active" ? `${content.current.scrollHeight}px` : "0"
+    );
+  }, [active]);
 
   const menuItemDescription = (description) => {
     if (description) {
@@ -25,29 +40,21 @@ const MenuSection = ({ header, tagline, items, addToOrder }) => {
       </span>
     );
   };
-
-  const toggleSection = () => {
-    setActiveState(setActive === "" ? "active" : "");
-    setHeightState(
-      setActive === "active" ? "0" : `${content.current.scrollHeight}px`
-    );
-  };
   return (
-    <section className={`menu-section ${setActive}`}>
+    <section className={`menu-section ${active}`} id={header} ref={scroll}>
       <button
         type="button"
         className="menu-section-header"
-        onClick={toggleSection}
+        onClick={() => sectionClick(index)}
       >
         {header}
         <Chevron
           fill={"#fff"}
-          className={`menu-section-header-chevron ${setActive}`}
+          className={`menu-section-header-chevron ${active}`}
         />
       </button>
       <div
         ref={content}
-        id={header}
         style={{ maxHeight: `${setHeight}` }}
         className="menu-section-content"
       >
