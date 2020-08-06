@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import { Link, Match } from "@reach/router";
+import { Route, Link } from "react-router-dom";
 
-function NavLink({ to, children }) {
+function NavLink({ to, exact, children }) {
   return (
-    <Match path={to}>
+    <Route path={to} exact={exact}>
       {({ match }) => (
         <li className={match ? "nav-item active" : "nav-item"}>
           <Link to={to}>{children}</Link>
         </li>
       )}
-    </Match>
+    </Route>
   );
 }
 class Header extends Component {
@@ -24,9 +24,15 @@ class Header extends Component {
             </section>
             <nav className="navigation">
               <ul className="nav-bar">
-                <NavLink to={`/`}>Home</NavLink>
-                <NavLink to={`/menu`}>Menu</NavLink>
-                <NavLink to={`/contact`}>Contact</NavLink>
+                <NavLink to={`/`} exact={true}>
+                  Home
+                </NavLink>
+                <NavLink to={`/menu`} exact={false}>
+                  Menu
+                </NavLink>
+                <NavLink to={`/contact`} exact={false}>
+                  Contact
+                </NavLink>
               </ul>
             </nav>
           </div>

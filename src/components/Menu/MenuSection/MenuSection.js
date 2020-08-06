@@ -17,7 +17,7 @@ const MenuSection = ({
   const scroll = useRef({});
   useEffect(() => {
     setTimeout(() => {
-      if (active === "active") {
+      if (active === "active" && scroll.current !== null) {
         scroll.current.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }, 500);

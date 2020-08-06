@@ -17,19 +17,20 @@ class Menu extends Component {
     this.setState({
       orderList: input,
     });
-    console.log(input);
   }
+
   render() {
     const sectionClick = (id) => {
       this.setActiveSection(this.state.activeSection === id ? "" : id);
     };
+
     const addToOrderList = (e, id, title, price) => {
       let prevState = this.state.orderList;
       let objIndex = prevState.findIndex((obj) => obj.id === id);
 
       if (objIndex >= 0) {
         prevState[objIndex].quantity += 1;
-        prevState[objIndex].price *= 2;
+        prevState[objIndex].price = price * prevState[objIndex].quantity;
       } else {
         prevState.push({ id: id, title: title, price: price, quantity: 1 });
       }
@@ -38,10 +39,13 @@ class Menu extends Component {
     const removeFromOrderList = (e, id) => {
       let prevState = this.state.orderList;
       let objIndex = prevState.findIndex((obj) => obj.id === id);
+      let prevQuantity = prevState[objIndex].quantity;
+      let prevPrice = prevState[objIndex].price;
 
       if (objIndex >= 0 && prevState[objIndex].quantity > 1) {
         prevState[objIndex].quantity -= 1;
-        prevState[objIndex].price /= 2;
+        prevState[objIndex].price =
+          (prevPrice / prevQuantity) * prevState[objIndex].quantity;
         this.setOrderList(prevState);
       } else {
         if (prevState.length === 1) {
