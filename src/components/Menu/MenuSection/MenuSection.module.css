@@ -1,0 +1,64 @@
+.MenuSection {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
+}
+.MenuSection::before {
+    display: block;
+    content: " ";
+    margin-top: 1rem;
+    visibility: hidden;
+    width: 100%;
+}
+.MenuSection:first-child {
+    margin-top: -1rem;
+}
+.MenuSectionContent {
+    overflow: hidden;
+    background-color: #fff;
+    transition: max-height 0.5s ease;
+    max-height: 0;
+}
+
+.MenuSectionHeader,
+.MenuSectionSubheader,
+.MenuSectionItem,
+.MenuSectionSeparator {
+    flex: 1;
+}
+.MenuSectionHeader {
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: var(--main-color);
+    color: #fff;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: background-color 0.5s ease;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 3.3rem;
+}
+.MenuSectionHeader:hover {
+    background-color: var(--main-color-darker);
+}
+.Chevron {
+    width: 0.6em;
+    display: inline-block;
+    transition: transform 0.1s ease;
+}
+.Chevron.Active {
+    transform: rotate(90deg);
+}
+.MenuSectionSubheader {
+    font-size: 1.17em;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 1em;
+    padding: 1rem 1rem 0 1rem;
+}

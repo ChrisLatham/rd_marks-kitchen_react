@@ -11,8 +11,8 @@ const MenuSection = ({
   index,
 }) => {
   const [setHeight, setHeightState] = useState("0");
-  const content = useRef(null);
-  const scroll = useRef(null);
+  const content = useRef({});
+  const scroll = useRef({});
 
   useEffect(() => {
     setTimeout(() => {

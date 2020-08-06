@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { sections } from "../data/menu.json";
 import DoubleAside from "../layout/DoubleAside";
 import MenuSection from "./MenuSection";

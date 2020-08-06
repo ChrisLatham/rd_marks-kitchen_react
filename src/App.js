@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { Router } from "@reach/router";
 import Home from "./components/Home";
-import Menu from "./components/Menu";
+import Menu from "./components/Menu/Menu";
 import Contact from "./components/Contact";
 
 function App() {
